@@ -9,15 +9,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="70dp"
         android:layout_gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Note"
-            android:textSize="50sp"
+            android:textSize="60sp"
             android:layout_gravity="center" />
 
         <TextView
@@ -27,7 +28,18 @@
             android:includeFontPadding="false"
             android:text="ON"
             android:textColor="@color/colorPrimary"
-            android:textSize="82sp" />
+            android:textSize="82sp"
+            />
 </LinearLayout>
+
+    <Button
+        android:id="@+id/kakaoLoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:padding="19dp"
+        android:text="카카오톡으로 로그인"
+        android:textSize="20sp" />
 
 </LinearLayout>
