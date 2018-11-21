@@ -7,11 +7,14 @@ import android.content.pm.Signature;
 import android.util.Base64;
 
 import com.bh.noteon.logger.Logger;
+import com.kakao.auth.IApplicationConfig;
+import com.kakao.auth.ISessionConfig;
+import com.kakao.auth.KakaoAdapter;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class KakaoSDKAdapter {
+public class KakaoSDKAdapter extends KakaoAdapter {
     private static final String TAG = "KakaoSDKAdapter";
     public String getKeyHash(Context context) {
         try {
@@ -33,6 +36,18 @@ public class KakaoSDKAdapter {
         } catch (PackageManager.NameNotFoundException e) {
             Logger.e(TAG, e.getMessage());
         }
+        return null;
+    }
+
+    @Override
+    public ISessionConfig getSessionConfig() {
+        // TODO
+        return null;
+    }
+
+    @Override
+    public IApplicationConfig getApplicationConfig() {
+        // TODO
         return null;
     }
 }
