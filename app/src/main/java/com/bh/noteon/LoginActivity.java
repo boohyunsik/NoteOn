@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 
+import com.bh.noteon.kakao.KakaoSDKAdapter;
 import com.bh.noteon.logger.Logger;
 
 import java.security.MessageDigest;
@@ -20,6 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     private String mKeyHash;
 
     // for Kakako
+    private KakaoSDKAdapter mKakaoSDKAdapter;
     private String mAppKey;
     private String mRestKey;
 
@@ -32,33 +34,13 @@ public class LoginActivity extends AppCompatActivity {
         Logger.d(TAG, "onCreate()");
 
         mContext = getApplicationContext();
-        mKeyHash = getKeyHash();
+        mKakaoSDKAdapter = new KakaoSDKAdapter();
+        mKeyHash = mKakaoSDKAdapter.getKeyHash(mContext);
 
         // Kakao key가 필요할 때는 getString 함수를 이용하면 된다.
         mAppKey = getString(R.string.kakao_native_app_key);
         mRestKey = getString(R.string.kakao_rest_api_key);
     }
 
-    private String getKeyHash() {
-        try {
-            PackageInfo packageInfo = getPackageManager().getPackageInfo(
-                    getPackageName(), PackageManager.GET_SIGNATURES);
-            if (packageInfo == null) {
-                return null;
-            }
 
-            for (Signature signature : packageInfo.signatures) {
-                try {
-                    MessageDigest md = MessageDigest.getInstance("SHA");
-                    md.update(signature.toByteArray());
-                    return Base64.encodeToString(md.digest(), Base64.NO_WRAP);
-                } catch (NoSuchAlgorithmException e) {
-                    Logger.e(TAG, "Unable to get MeesageDigest.");
-                }
-            }
-        } catch (PackageManager.NameNotFoundException e) {
-            Logger.e(TAG, e.getMessage());
-        }
-        return null;
-    }
 }
