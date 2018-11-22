@@ -56,7 +56,7 @@ public class GlobalApplication extends Application {
 
                 @Override
                 public Context getApplicationContext() {
-                    return null;
+                    return getApplicationContext();
                 }
             };
         }
