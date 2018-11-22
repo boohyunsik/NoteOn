@@ -1,12 +1,16 @@
 package com.bh.noteon.kakao;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.util.Base64;
 
+import com.bh.noteon.GlobalApplication;
 import com.bh.noteon.logger.Logger;
+import com.kakao.auth.ApprovalType;
+import com.kakao.auth.AuthType;
 import com.kakao.auth.IApplicationConfig;
 import com.kakao.auth.ISessionConfig;
 import com.kakao.auth.KakaoAdapter;
@@ -42,12 +46,42 @@ public class KakaoSDKAdapter extends KakaoAdapter {
     @Override
     public ISessionConfig getSessionConfig() {
         // TODO
-        return null;
+        return new ISessionConfig(){
+            @Override
+            public AuthType[] getAuthTypes(){
+                return new AuthType[] {AuthType.KAKAO_ACCOUNT};
+            }
+
+            @Override
+            public boolean isUsingWebviewTimer(){
+                return false;
+            }
+
+            @Override
+            public boolean isSecureMode() {
+                return false;
+            }
+
+            @Override
+            public ApprovalType getApprovalType(){
+                return ApprovalType.INDIVIDUAL;
+            }
+
+            @Override
+            public boolean isSaveFormData() {
+                return false;
+            }
+        };
     }
 
     @Override
     public IApplicationConfig getApplicationConfig() {
         // TODO
-        return null;
+        return new IApplicationConfig() {
+            @Override
+            public Context getApplicationContext() {
+                return GlobalApplication.getGlobalApplicationContext();
+            }
+        };
     }
 }

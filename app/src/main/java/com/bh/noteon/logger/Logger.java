@@ -2,6 +2,8 @@ package com.bh.noteon.logger;
 
 import android.util.Log;
 
+import com.kakao.util.exception.KakaoException;
+
 public class Logger {
     private static String TAG = "NoteON";
 
@@ -19,5 +21,8 @@ public class Logger {
 
     public static void wtf(String className, String msg) {
         Log.wtf(TAG + "@" + className, msg);
+    }
+
+    public static void e(KakaoException exception) {
     }
 }

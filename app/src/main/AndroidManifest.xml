@@ -11,10 +11,10 @@
         android:theme="@style/AppTheme">
         <meta-data
             android:name="com.kakao.sdk.AppKey"
-            android:value="@string/kakao_native_app_key" />
+            android:value="@string/kakao_app_key" />
         <meta-data
             android:name="com.kakao.sdk.ClientSecret"
-            android:value="<kakao client secret value>" />
+            android:value="@string/kakao_admin_key" />
         <activity android:name=".IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
