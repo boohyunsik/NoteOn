@@ -75,10 +75,9 @@ public class LoginActivity extends AppCompatActivity {
         @Override
         public void onSessionOpenFailed(KakaoException exception) {
             if(exception != null){
-                Logger.e(exception);
+                Logger.e("KakaoSDKAdapter.java", exception.getMessage());
             }
         }
-
     }
 
     protected void redirectSignupActivity(){
