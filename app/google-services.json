@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "714013316183",
+    "firebase_url": "https://noteon-bh.firebaseio.com",
+    "project_id": "noteon-bh",
+    "storage_bucket": "noteon-bh.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714013316183:android:c37833cee3d82df6",
+        "android_client_info": {
+          "package_name": "com.bh.noteon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "714013316183-1cpdqpou0prrl0h43pgbse44230tjevc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYE-vmuEc6vf1kiZBBLFswTEaOaurhVyk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

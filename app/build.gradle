@@ -32,4 +32,9 @@ dependencies {
 
     // 카카오 로그인 sdk를 사용하기 위해 필요.
     implementation group: 'com.kakao.sdk', name: 'usermgmt', version: project.KAKAO_SDK_VERSION
+
+    // Firebase
+    implementation 'com.google.firebase:firebase-core:16.0.1'
 }
+
+apply plugin: 'com.google.gms.google-services'
