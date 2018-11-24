@@ -1,6 +1,5 @@
 package com.bh.noteon;
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
@@ -10,12 +9,10 @@ import com.kakao.auth.IApplicationConfig;
 import com.kakao.auth.ISessionConfig;
 import com.kakao.auth.KakaoAdapter;
 import com.kakao.auth.KakaoSDK;
-import com.bh.noteon.kakao.KakaoSDKAdapter;
 
 public class GlobalApplication extends Application {
-    public static Context getGlobalApplicationContext() {
-        return null;
-    }
+
+    private static GlobalApplication instance;
 
     private static class KakaoSDKAdapter extends KakaoAdapter {
 
@@ -53,10 +50,12 @@ public class GlobalApplication extends Application {
         @Override
         public IApplicationConfig getApplicationConfig(){
             return new IApplicationConfig(){
-
                 @Override
                 public Context getApplicationContext() {
-                    return getApplicationContext();
+                    if (instance != null) {
+                        return instance;
+                    }
+                    return null;
                 }
             };
         }
@@ -65,6 +64,7 @@ public class GlobalApplication extends Application {
     @Override
     public void onCreate(){
         super.onCreate();
+        instance = this;
         KakaoSDK.init(new KakaoSDKAdapter());
     }
 }

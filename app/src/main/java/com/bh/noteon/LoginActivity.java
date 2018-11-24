@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 
-import com.bh.noteon.kakao.KakaoSDKAdapter;
 import com.bh.noteon.logger.Logger;
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.KakaoSDK;
@@ -26,7 +25,6 @@ public class LoginActivity extends AppCompatActivity {
     private String mKeyHash;
 
     // for Kakako
-    private KakaoSDKAdapter mKakaoSDKAdapter;
     private String mAppKey;
     private String mRestKey;
     private SessionCallback callback;
@@ -40,8 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         Logger.d(TAG, "onCreate()");
 
         mContext = getApplicationContext();
-        mKakaoSDKAdapter = new KakaoSDKAdapter();
-        mKeyHash = mKakaoSDKAdapter.getKeyHash(mContext);
+        //mKakaoSDKAdapter = new KakaoSDKAdapter();
+        //mKeyHash = mKakaoSDKAdapter.getKeyHash(mContext);
 
         // Kakao key가 필요할 때는 getString 함수를 이용하면 된다.
         mAppKey = getString(R.string.kakao_app_key);
