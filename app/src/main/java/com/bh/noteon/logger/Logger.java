@@ -23,6 +23,7 @@ public class Logger {
         Log.wtf(TAG + "@" + className, msg);
     }
 
-    public static void e(KakaoException exception) {
+    public static void e(String className, KakaoException exception) {
+        Log.e(TAG + "@"+ className, exception.getMessage());
     }
 }
