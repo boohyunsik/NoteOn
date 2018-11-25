@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Logger.d(TAG, "onActivityResult");
         if(Session.getCurrentSession().handleActivityResult(requestCode, resultCode, data)){
             return;
         }
@@ -79,6 +80,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     protected void redirectSignupActivity(){
+        Logger.d(TAG, "redirectSignupActivity()");
         final Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
