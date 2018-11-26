@@ -1,13 +1,27 @@
 package com.bh.noteon.firebase.dao;
 
-public class LoginInfo {
-    private final String id;
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.IgnoreExtraProperties;
 
-    public LoginInfo(String id) {
+import java.util.HashMap;
+import java.util.Map;
+
+@IgnoreExtraProperties
+public class LoginInfo {
+    private final Long id;
+
+    public LoginInfo(Long id) {
         this.id = id;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
+    }
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap();
+        result.put("id", id);
+        return result;
     }
 }

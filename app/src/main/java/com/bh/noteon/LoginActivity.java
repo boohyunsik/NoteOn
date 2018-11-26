@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
 
+import com.bh.noteon.firebase.FirebaseConnector;
+import com.bh.noteon.kakao.KakaoSessionCallback;
 import com.bh.noteon.logger.Logger;
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.KakaoSDK;
@@ -20,14 +22,8 @@ import java.security.NoSuchAlgorithmException;
 
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
-    // 멤버변수는 mContext 처럼 m으로 시작한다.
-    private Context mContext;
-    private String mKeyHash;
 
-    // for Kakako
-    private String mAppKey;
-    private String mRestKey;
-    private SessionCallback callback;
+    private ISessionCallback mCallback;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +32,8 @@ public class LoginActivity extends AppCompatActivity {
 
         // 로그 찍을땐 아래와 같이 Logger 함수를 이용한다.
         Logger.d(TAG, "onCreate()");
-
-        mContext = getApplicationContext();
-        //mKakaoSDKAdapter = new KakaoSDKAdapter();
-        //mKeyHash = mKakaoSDKAdapter.getKeyHash(mContext);
-
-        // Kakao key가 필요할 때는 getString 함수를 이용하면 된다.
-        mAppKey = getString(R.string.kakao_app_key);
-        mRestKey = getString(R.string.kakao_rest_api_key);
-
-        callback = new SessionCallback();
-        Session.getCurrentSession().addCallback(callback);
+        mCallback = new KakaoSessionCallback(getApplicationContext());
+        Session.getCurrentSession().addCallback(mCallback);
         Session.getCurrentSession().checkAndImplicitOpen();
     }
 
@@ -62,21 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onDestroy(){
         super.onDestroy();
-        Session.getCurrentSession().removeCallback(callback);
-    }
-
-    private class SessionCallback implements ISessionCallback {
-        @Override
-        public void onSessionOpened() {
-            redirectSignupActivity();
-        }
-
-        @Override
-        public void onSessionOpenFailed(KakaoException exception) {
-            if(exception != null){
-                Logger.e(TAG, exception.getMessage());
-            }
-        }
+        Session.getCurrentSession().removeCallback(mCallback);
     }
 
     protected void redirectSignupActivity(){

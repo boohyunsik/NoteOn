@@ -10,7 +10,6 @@ import com.kakao.auth.ISessionConfig;
 import com.kakao.auth.KakaoAdapter;
 
 public class KakaoSDKAdapter extends KakaoAdapter {
-
     @Override
     public ISessionConfig getSessionConfig() {
         return new ISessionConfig() {
