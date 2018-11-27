@@ -7,4 +7,7 @@
     <string name="kakao_java_script_key">31d49aa7d1d0caa4df1ea6f384fd3bcd</string>
     <string name="kakao_admin_key">907fd700da374dc52bcd98a5b139fd94</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
