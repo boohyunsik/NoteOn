@@ -26,4 +26,12 @@
         android:background="?android:attr/windowBackground"
         app:menu="@menu/menu_bottom"/>
 
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/top_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/menu_top"/>
+
 </android.support.constraint.ConstraintLayout>
