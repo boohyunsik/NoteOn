@@ -52,6 +52,7 @@ public class KakaoSessionCallback implements ISessionCallback {
 
     private void redirectSignupActivity() {
         final Intent intent = new Intent(mContext, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         mContext.startActivity(intent);
     }
 }
