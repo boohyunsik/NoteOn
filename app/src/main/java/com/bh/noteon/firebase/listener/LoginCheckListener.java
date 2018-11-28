@@ -26,7 +26,7 @@ public class LoginCheckListener implements ValueEventListener {
             Logger.d(TAG, "This user is not a member");
             FirebaseConnector.getInstance().addNewMemeber(id);
         } else {
-            Logger.d(TAG, "This user is a memeber");
+            Logger.d(TAG, "This user is a member");
         }
     }
 }
