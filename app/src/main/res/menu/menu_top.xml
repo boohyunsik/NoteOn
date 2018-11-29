@@ -1,17 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/topNavigation_menu1"
+        android:id="@+id/topNavigation_history"
         android:icon="@android:drawable/ic_dialog_email"
-        android:title="SUBJECT1" />
+        android:title="History" />
 
     <item
-        android:id="@+id/topNavigation_menu2"
+        android:id="@+id/topNavigation_math"
         android:icon="@android:drawable/ic_menu_manage"
-        android:title="SUBJECT2" />
+        android:title="Math" />
 
     <item
-        android:id="@+id/topNavigation_menu3"
+        android:id="@+id/topNavigation_biology"
         android:icon="@android:drawable/ic_lock_lock"
-        android:title="SUBJECT3" />
+        android:title="Biology" />
+
+    <item
+        android:id="@+id/topNavigation_earth"
+        android:icon="@android:drawable/ic_lock_lock"
+        android:title="Earth" />
 </menu>

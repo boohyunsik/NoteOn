@@ -61,16 +61,20 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 switch(item.getItemId()){
-                    case R.id.topNavigation_menu1: {
+                    case R.id.topNavigation_history: {
                         transaction.replace(R.id.frame_layout, menu1Fragment).commitAllowingStateLoss();
                         break;
                     }
-                    case R.id.topNavigation_menu2: {
+                    case R.id.topNavigation_math: {
                         transaction.replace(R.id.frame_layout, menu2Fragment).commitAllowingStateLoss();
                         break;
                     }
-                    case R.id.topNavigation_menu3: {
+                    case R.id.topNavigation_biology: {
                         transaction.replace(R.id.frame_layout, menu3Fragment).commitAllowingStateLoss();
+                        break;
+                    }
+                    case R.id.topNavigation_earth: {
+                        transaction.replace(R.id.frame_layout, menu2Fragment).commitAllowingStateLoss();
                         break;
                     }
                 }
