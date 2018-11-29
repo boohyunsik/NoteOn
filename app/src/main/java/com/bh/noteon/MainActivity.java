@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -37,18 +38,17 @@ public class MainActivity extends AppCompatActivity {
                 new BottomNavigationView.OnNavigationItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item){
-                FragmentTransaction transaction = fragmentManager.beginTransaction();
                 switch(item.getItemId()){
                     case R.id.bottomNavigation_menu1: {
-                        transaction.replace(R.id.frame_layout, mathFragment).commitAllowingStateLoss();
+                        showColorDialog();
                         break;
                     }
                     case R.id.bottomNavigation_menu2: {
-                        transaction.replace(R.id.frame_layout, biologyFragment).commitAllowingStateLoss();
+                        showStyleDialog();
                         break;
                     }
                     case R.id.bottomNavigation_menu3: {
-                        transaction.replace(R.id.frame_layout, biologyFragment).commitAllowingStateLoss();
+
                         break;
                     }
                 }
@@ -107,5 +107,19 @@ public class MainActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showColorDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("색 선택")
+                .setMessage("색을 선택하세요.")
+                .show();
+    }
+
+    private void showStyleDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("펜 스타일 선택")
+                .setMessage("스타일을 선택하세요.")
+                .show();
     }
 }
