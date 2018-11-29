@@ -1,7 +1,5 @@
 package com.bh.noteon;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,12 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Menu2Fragment extends Fragment {
+public class BiologyFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater Inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState){
-        return Inflater.inflate(R.layout.fragment_menu2, container,false);
+        return Inflater.inflate(R.layout.fragment_biology, container,false);
     }
 }

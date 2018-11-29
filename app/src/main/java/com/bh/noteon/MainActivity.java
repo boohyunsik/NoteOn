@@ -1,12 +1,12 @@
 package com.bh.noteon;
 
 import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,9 +15,10 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager fragmentManager = getSupportFragmentManager();
 
     //3개의 메뉴에 들어갈 Fragment들
-    private Menu1Fragment menu1Fragment = new Menu1Fragment();
-    private Menu2Fragment menu2Fragment = new Menu2Fragment();
-    private Menu3Fragment menu3Fragment = new Menu3Fragment();
+    private HistoryFragment historyFragment = new HistoryFragment();
+    private MathFragment mathFragment = new MathFragment();
+    private BiologyFragment biologyFragment = new BiologyFragment();
+    private EarthFragment earthFragment = new EarthFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         //첫화면 지정
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.frame_layout, menu1Fragment).commitAllowingStateLoss();
+        transaction.replace(R.id.frame_layout, historyFragment).commitAllowingStateLoss();
 
         //bottomNavigationView의 아이템이 선택될 때 호출될 리스너 등록
         bottomNavigationView.setOnNavigationItemSelectedListener(
@@ -39,15 +40,15 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 switch(item.getItemId()){
                     case R.id.bottomNavigation_menu1: {
-                        transaction.replace(R.id.frame_layout, menu1Fragment).commitAllowingStateLoss();
+                        transaction.replace(R.id.frame_layout, mathFragment).commitAllowingStateLoss();
                         break;
                     }
                     case R.id.bottomNavigation_menu2: {
-                        transaction.replace(R.id.frame_layout, menu2Fragment).commitAllowingStateLoss();
+                        transaction.replace(R.id.frame_layout, biologyFragment).commitAllowingStateLoss();
                         break;
                     }
                     case R.id.bottomNavigation_menu3: {
-                        transaction.replace(R.id.frame_layout, menu3Fragment).commitAllowingStateLoss();
+                        transaction.replace(R.id.frame_layout, biologyFragment).commitAllowingStateLoss();
                         break;
                     }
                 }
@@ -62,24 +63,37 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction transaction = fragmentManager.beginTransaction();
                 switch(item.getItemId()){
                     case R.id.topNavigation_history: {
-                        transaction.replace(R.id.frame_layout, menu1Fragment).commitAllowingStateLoss();
+                        transaction.replace(R.id.frame_layout, historyFragment).commitAllowingStateLoss();
                         break;
                     }
                     case R.id.topNavigation_math: {
-                        transaction.replace(R.id.frame_layout, menu2Fragment).commitAllowingStateLoss();
+                        transaction.replace(R.id.frame_layout, mathFragment).commitAllowingStateLoss();
                         break;
                     }
                     case R.id.topNavigation_biology: {
-                        transaction.replace(R.id.frame_layout, menu3Fragment).commitAllowingStateLoss();
+                        transaction.replace(R.id.frame_layout, biologyFragment).commitAllowingStateLoss();
                         break;
                     }
                     case R.id.topNavigation_earth: {
-                        transaction.replace(R.id.frame_layout, menu2Fragment).commitAllowingStateLoss();
+                        transaction.replace(R.id.frame_layout, earthFragment).commitAllowingStateLoss();
                         break;
                     }
                 }
                 return true;
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.actionbar_actions, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        menu.getItem(0).setEnabled(true);
+        menu.getItem(1).setEnabled(true);
+        return super.onPrepareOptionsMenu(menu);
     }
 }
