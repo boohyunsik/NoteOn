@@ -96,4 +96,16 @@ public class MainActivity extends AppCompatActivity {
         menu.getItem(1).setEnabled(true);
         return super.onPrepareOptionsMenu(menu);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final int id = item.getItemId();
+        switch(id) {
+            case R.id.action_save:
+                return true;
+            case R.id.action_info:
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
